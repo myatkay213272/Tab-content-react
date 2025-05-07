@@ -59,7 +59,7 @@ const TabContent = ({activeTab}) => {
   return (
     <div className='content-box'>
 
-      <h3>React is a librry for building UIs</h3>
+      <h3>{content.title}</h3>
 
       {showDetail && <p>{content.description}</p>}
 
