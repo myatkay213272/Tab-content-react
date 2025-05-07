@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Tab from './components/Tab'
+import TabContent from './components/TabContent'
 
 const App = () => {
+
+  const [activeTab,setActiveTab] = useState(0)
+
   return (
-    <div>App</div>
+    <div className='app'>
+        <Tab activeTab={activeTab}  setActiveTab={setActiveTab}/>
+        <TabContent activeTab={activeTab}/>
+    </div>
   )
 }
 
