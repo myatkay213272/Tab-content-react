@@ -1,22 +1,8 @@
-import React, { useState } from 'react'
-import TabContent from './TabContent'
+import React from 'react'
 
-const Tab = ({ activeTab, setActiveTab }) => {
-
-  const tabs = ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'];
-
+const Tab = () => {
   return (
-    <div>
-      {tabs.map((tab,index)=>(
-        <button 
-          key={index}
-          className={activeTab === index ? 'tab active' : 'tab'}
-          onClick={()=>setActiveTab(index)}
-        >
-          {tab}
-        </button>
-      ))}
-    </div>
+    <div>Tab</div>
   )
 }
 
