@@ -29,6 +29,11 @@
   margin-top: 20px;
 }
 
+.detail{
+  display: flex;
+  justify-content: space-between;
+}
+
 .actions {
   margin-top: 10px;
 }

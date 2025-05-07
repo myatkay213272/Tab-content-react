@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const TabContent = () => {
+const TabContent = ({activeTab}) => {
 
   
   const contents = [
@@ -22,10 +22,72 @@ const TabContent = () => {
     }
   ];
 
+  const [showDetail,setShowDetail] = useState(true)
+  const [likes,setLikes] = useState(0)
+  const handleDetailToggle = ()=>{
+    setShowDetail(!showDetail)
+  }
 
+  const content = contents[activeTab]
+  
+  const handleInc = ()=>{
+    setLikes((likes)=>likes + 1)
+  }
+
+
+  const handleTripleInc=()=>{
+
+    // setLikes(likes + 1)  0+1 =1
+    // setLikes(likes + 1)  0+1 =1
+    // setLikes(likes + 1)  0+1 =1
+
+    setLikes((likes)=>likes+1) // 0+1
+    setLikes((likes)=>likes+1) // 1+1
+    setLikes((likes)=>likes+1) //2+1
+
+  }
+
+  const handleUndo = ()=>{
+    setShowDetail(true)
+    setLikes(0)
+  }
+
+  const handleUndoLater = ()=>{
+    setTimeout(handleUndo,2000)
+  }
 
   return (
-    <div>TabContent</div>
+    <div className='content-box'>
+
+      <h3>React is a librry for building UIs</h3>
+
+      {showDetail && <p>{content.description}</p>}
+
+      <div className='detail'>
+      <a href="#"
+        onClick={handleDetailToggle}
+      >
+        {showDetail ? "Hide" : "Show"} details
+      </a>
+
+      <div className='likes'>
+        <span>{likes} 💖</span>
+        <button onClick={handleInc}>+</button>
+        <button onClick={handleTripleInc}>+++</button>
+      </div>
+      </div>
+
+
+      <div className='actions'>
+        <button onClick={handleUndo}>Undo</button>
+        <button onClick={handleUndoLater}>Undo in 2s</button>
+      </div>
+
+
+     
+
+
+    </div>
   )
 }
 
